@@ -1,0 +1,41 @@
+<div >
+    <div class="text-bg-dark text-center rounded-bottom py-4">
+        <h1 class="display-4">
+            Accounts Register
+        </h1>
+    </div>
+    <div class="p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <app-employee-form></app-employee-form>
+                <!-- <app-employee-form *ngIf="!isLoggedIn"></app-employee-form> -->
+                <!-- <app-employee-form [isLoggedIn]="isLoggedIn"></app-employee-form> 
+                *ngIf="isLoggedIn"-->
+            </div>
+            <div class="col-md-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let emp of service.list">
+                            <td (click)="populateForm(emp)">{{emp.username}}</td>
+                            <td (click)="populateForm(emp)">{{emp.password}}</td>
+                            <td (click)="populateForm(emp)">{{emp.gender}}</td>
+                            <td (click)="populateForm(emp)">{{emp.age}}</td>
+                            <td>
+                                <i class="far fa-trash-alt fa-lg text-secondary" (click)="onDelete(emp._id)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
